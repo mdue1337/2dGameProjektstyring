@@ -37,7 +37,7 @@ margin_top = 34.0
 margin_right = 535.0
 margin_bottom = 64.0
 custom_fonts/font = ExtResource( 2 )
-text = "- 1 heart is gained each 10 chest"
+text = "- 1 heart is gained each 10 chests"
 
 [node name="Label3" type="Label" parent="ColorRect/Rules/VBoxContainer"]
 margin_top = 68.0
