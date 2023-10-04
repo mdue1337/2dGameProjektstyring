@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Other/Font/Main_Menu_Title.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Models/Ship.png" type="Texture" id=2]
+[ext_resource path="res://Models/pirate.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Main_Menu.gd" type="Script" id=3]
 
 [node name="MainMenu" type="Node2D"]
+script = ExtResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 304, 540 )
@@ -23,17 +25,18 @@ text = "Scoundrels and scallywags"
 align = 1
 
 [node name="TextureRect" type="TextureRect" parent="ColorRect"]
-margin_left = 56.0
-margin_top = 383.0
-margin_right = 552.0
-margin_bottom = 631.0
+margin_left = 18.0
+margin_top = 312.0
+margin_right = 978.0
+margin_bottom = 946.0
+rect_scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 2 )
 stretch_mode = 1
 
 [node name="StartLevel" type="Button" parent="ColorRect"]
-margin_left = 200.0
+margin_left = 189.0
 margin_top = 727.0
-margin_right = 450.0
+margin_right = 439.0
 margin_bottom = 773.0
 custom_fonts/font = ExtResource( 1 )
 text = "Start!"
@@ -42,12 +45,15 @@ __meta__ = {
 }
 
 [node name="Settings" type="Button" parent="ColorRect"]
-margin_left = 200.0
+margin_left = 189.0
 margin_top = 777.0
-margin_right = 450.0
+margin_right = 439.0
 margin_bottom = 823.0
 custom_fonts/font = ExtResource( 1 )
 text = "Rules"
 __meta__ = {
 "_edit_group_": true
 }
+
+[connection signal="pressed" from="ColorRect/StartLevel" to="." method="_on_StartLevel_pressed"]
+[connection signal="pressed" from="ColorRect/Settings" to="." method="_on_Settings_pressed"]
