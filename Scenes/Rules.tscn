@@ -1,0 +1,98 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Other/Font/Main_Menu_Title.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Other/Font/Rules.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Scenes/Rules.gd" type="Script" id=3]
+
+[node name="Rules" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 610.0
+margin_bottom = 1131.0
+color = Color( 0.305882, 0.462745, 0.866667, 1 )
+
+[node name="Rules" type="Label" parent="ColorRect"]
+margin_left = 242.0
+margin_top = 246.0
+margin_right = 346.0
+margin_bottom = 286.0
+custom_fonts/font = ExtResource( 1 )
+text = "Rules"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/Rules"]
+margin_left = -192.0
+margin_top = 98.0
+margin_right = 343.0
+margin_bottom = 339.0
+
+[node name="Label" type="Label" parent="ColorRect/Rules/VBoxContainer"]
+margin_right = 535.0
+margin_bottom = 30.0
+custom_fonts/font = ExtResource( 2 )
+text = "- 3 hearts is the maximum health"
+
+[node name="Label2" type="Label" parent="ColorRect/Rules/VBoxContainer"]
+margin_top = 34.0
+margin_right = 535.0
+margin_bottom = 64.0
+custom_fonts/font = ExtResource( 2 )
+text = "- 1 heart is gained each 10 chest"
+
+[node name="Label3" type="Label" parent="ColorRect/Rules/VBoxContainer"]
+margin_top = 68.0
+margin_right = 535.0
+margin_bottom = 98.0
+custom_fonts/font = ExtResource( 2 )
+text = "- 1 chest equals 1 point"
+
+[node name="Controls" type="Label" parent="ColorRect"]
+margin_left = 216.0
+margin_top = 520.0
+margin_right = 380.0
+margin_bottom = 560.0
+custom_fonts/font = ExtResource( 1 )
+text = "Controls"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect/Controls"]
+margin_left = -73.0
+margin_top = 107.0
+margin_right = 243.0
+margin_bottom = 276.0
+
+[node name="Label" type="Label" parent="ColorRect/Controls/VBoxContainer2"]
+margin_right = 316.0
+margin_bottom = 30.0
+custom_fonts/font = ExtResource( 2 )
+text = "- \"w\" to move up"
+
+[node name="Label2" type="Label" parent="ColorRect/Controls/VBoxContainer2"]
+margin_top = 34.0
+margin_right = 316.0
+margin_bottom = 64.0
+custom_fonts/font = ExtResource( 2 )
+text = "- \"a\" to move left"
+
+[node name="Label3" type="Label" parent="ColorRect/Controls/VBoxContainer2"]
+margin_top = 68.0
+margin_right = 316.0
+margin_bottom = 98.0
+custom_fonts/font = ExtResource( 2 )
+text = "- \"s\" to move down"
+
+[node name="Label4" type="Label" parent="ColorRect/Controls/VBoxContainer2"]
+margin_top = 102.0
+margin_right = 316.0
+margin_bottom = 132.0
+custom_fonts/font = ExtResource( 2 )
+text = "- \"d\" to move right"
+
+[node name="Button" type="Button" parent="ColorRect"]
+margin_left = 23.0
+margin_top = 28.0
+margin_right = 127.0
+margin_bottom = 74.0
+custom_fonts/font = ExtResource( 1 )
+text = "Back"
+
+[connection signal="pressed" from="ColorRect/Button" to="." method="_on_Button_pressed"]
