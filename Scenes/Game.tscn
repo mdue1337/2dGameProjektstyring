@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Tilemap/WaterNoBoundary.tres" type="TileSet" id=1]
 [ext_resource path="res://Tilemap/WaterBoundary.tres" type="TileSet" id=2]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Models/Rock.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Models/Chest.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Other/ChestCounter.tscn" type="PackedScene" id=6]
 
 [node name="Game" type="Node2D"]
 
@@ -37,3 +38,7 @@ scale = Vector2( 0.75, 0.75 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 scale = Vector2( 5, 5 )
+
+[node name="ChestCounter" parent="." instance=ExtResource( 6 )]
+position = Vector2( -1623, -2504 )
+scale = Vector2( 4, 4 )

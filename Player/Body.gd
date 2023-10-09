@@ -34,7 +34,9 @@ func _physics_process(delta):
 		get_node("CollisionLeft").disabled = true
 
 	motion = move_and_slide(motion)
-
+func GetChest():
+	Gs.chestCounter += 1
+	
 
 
 
