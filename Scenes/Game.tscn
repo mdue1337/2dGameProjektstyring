@@ -33,9 +33,7 @@ position = Vector2( 997, 988 )
 
 [node name="Chest" parent="." instance=ExtResource( 5 )]
 position = Vector2( -1425, -798 )
-
-[node name="Chest2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 560, 2166 )
+scale = Vector2( 0.75, 0.75 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 scale = Vector2( 5, 5 )

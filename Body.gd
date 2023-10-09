@@ -18,4 +18,6 @@ func _physics_process(delta):
 		motion.y = 0
 	
 	motion = move_and_slide(motion)
+
+func getChest():
 	
