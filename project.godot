@@ -15,7 +15,7 @@ run/main_scene="res://Scenes/Main_Menu.tscn"
 
 [autoload]
 
-Gs="*res://Other/GS.gd"
+Gs="*res://Other/Globals.gd"
 
 [display]
 

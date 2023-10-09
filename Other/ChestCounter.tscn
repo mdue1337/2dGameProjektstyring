@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Other/Font/Main_Menu_Title.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Models/chest.png" type="Texture" id=2]
+[ext_resource path="res://Other/ChestCounter.gd" type="Script" id=3]
+
+[node name="ChestCounter" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 3800.0
+margin_bottom = 3600.0
+rect_scale = Vector2( 0.02, 0.02 )
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 85.0
+margin_top = 16.0
+margin_right = 247.0
+margin_bottom = 56.0
+custom_fonts/font = ExtResource( 1 )
+text = "Chests: "
