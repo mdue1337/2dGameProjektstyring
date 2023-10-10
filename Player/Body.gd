@@ -42,6 +42,7 @@ func _physics_process(delta):
 
 func GetChest():
 	Gs.chestCounter += 1
+	scoreToHealth()
 	$AudioStreamPlayer.play()
 	
 	#timer
@@ -60,7 +61,7 @@ func GetChest():
 
 	
 	
-	scoreToHealth()
+	
 	
 func scoreToHealth():
 	if Gs.chestCounter % 10 == 0 && Gs.chestCounter > 0:
