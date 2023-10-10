@@ -1,8 +1,10 @@
 extends KinematicBody2D
 
 const Speed = 1000
-
 var motion = Vector2()
+var hasTakenDamage = false
+
+
 func _ready():
 	Gs.connect("updateHealth", self, "scoreToHealth")
 
@@ -85,6 +87,12 @@ func take_damage():
 	
 	#timer slut
 	t.queue_free()
+	
+	if not hasTakenDamage: 
+		Gs.health = Gs.health - 1
+		hasTakenDamage = true  
+		check_if_dead()
+		hasTakenDamage = false
 
 func check_if_dead():
 	if Gs.health <= 0:
