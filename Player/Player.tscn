@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Player/Body.gd" type="Script" id=1]
 [ext_resource path="res://Models/Ship-Left.png" type="Texture" id=2]
 [ext_resource path="res://Player/AnimatedSprite.gd" type="Script" id=3]
+[ext_resource path="res://Audio/cha-ching-7053_wou8xv3Z.mp3" type="AudioStream" id=4]
 [ext_resource path="res://Models/Ship-Up.png" type="Texture" id=5]
 [ext_resource path="res://Models/Ship-Down.png" type="Texture" id=6]
 
@@ -42,3 +43,7 @@ polygon = PoolVector2Array( -38, 7, -21, 10, -15, 9, 13, 9, 14, 5, 20, 5, 21, 3,
 
 [node name="CollisionUp" type="CollisionPolygon2D" parent="Body"]
 polygon = PoolVector2Array( 0, -42, -13, -26, -11, 24, -5, 38, 3, 37, 10, 27, 10, -27 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Body"]
+pause_mode = 1
+stream = ExtResource( 4 )

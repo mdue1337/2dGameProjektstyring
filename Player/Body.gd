@@ -34,9 +34,24 @@ func _physics_process(delta):
 		get_node("CollisionLeft").disabled = true
 
 	motion = move_and_slide(motion)
+
 func GetChest():
 	Gs.chestCounter += 1
+	$AudioStreamPlayer.play()
 	
+	#timer
+	var t = Timer.new()
+	t.set_wait_time(0.96)
+	t.set_one_shot(true)
+	self.add_child(t)
+	t.start()
+	yield(t, "timeout")
+	
+	#stop
+	$AudioStreamPlayer.stop()
+	
+	#timer slut
+	t.queue_free()
 
 
 
