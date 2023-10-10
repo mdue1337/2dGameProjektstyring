@@ -5,3 +5,4 @@ var chestCounter = 0
 var needed_time = 200
 
 signal updateCounter(count)
+signal updateHealth(healthCount)

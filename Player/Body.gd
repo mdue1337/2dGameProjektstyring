@@ -1,9 +1,12 @@
 extends KinematicBody2D
 
-const Speed = 500
+const Speed = 1000
 
 var motion = Vector2()
+func _ready():
+	Gs.connect("updateHealth", self, "scoreToHealth")
 
+	
 func _physics_process(delta):
 	motion = Vector2()  # Reset the motion vector at the start of each frame
 
@@ -38,6 +41,24 @@ func _physics_process(delta):
 func GetChest():
 	Gs.chestCounter += 1
 	$AudioStreamPlayer.play()
+	scoreToHealth()
+	
+func scoreToHealth():
+	if Gs.chestCounter % 10 == 0 && Gs.chestCounter > 0:
+		Gs.health = Gs.health + 1
+		Gs.emit_signal("updateHealth",Gs.health)
+		print(Gs.health)
+
+func take_damage():
+	Gs.health = Gs.health - 1
+	check_if_dead()
+
+func check_if_dead():
+	if Gs.health <= 0:
+		get_tree().change_scene("res://Scenes/GameOver.tscn")
+	
+	
+
 	
 	#timer
 	var t = Timer.new()
