@@ -27,5 +27,5 @@ tile_data = PoolIntArray( -4063268, 0, 0, -4063260, 0, 0, -4063252, 0, 0, -40632
 scale = Vector2( 5, 5 )
 
 [node name="ChestCounter" parent="." instance=ExtResource( 6 )]
-position = Vector2( -1623, -2504 )
+position = Vector2( -2212, -3887 )
 scale = Vector2( 4, 4 )
