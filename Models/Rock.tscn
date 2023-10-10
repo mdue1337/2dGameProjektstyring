@@ -4,12 +4,20 @@
 [ext_resource path="res://Models/Rock.gd" type="Script" id=2]
 
 [node name="Rock" type="Node2D"]
+
+[node name="Rock" type="Area2D" parent="."]
 script = ExtResource( 2 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="Sprite" type="Sprite" parent="StaticBody2D"]
+[node name="Sprite" type="Sprite" parent="Rock"]
 texture = ExtResource( 1 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rock"]
+scale = Vector2( 1.08005, 1.06343 )
 polygon = PoolVector2Array( -256, 162, -259, 147, -241, 131, -241, 122, -252, 114, -252, 30, -240, -16, -200, -38, -154, -60, -124, -63, -115, -121, -49, -159, 9, -155, 59, -147, 78, -132, 104, -77, 104, -52, 173, -28, 218, 57, 248, 57, 258, 106, 241, 115, 223, 115, 216, 133, 171, 142, 101, 157, 78, 156, 67, 171, -46, 178, -57, 162 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Rock"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rock/StaticBody2D"]
+polygon = PoolVector2Array( -260, 160, -248, -12, -151, -61, -129, -60, -120, -118, -50, -159, 61, -146, 108, -85, 106, -52, 168, -28, 215, 45, 248, 56, 258, 95, 212, 139, 85, 158, 60, 179, -46, 179, -49, 157 )
+
+[connection signal="body_entered" from="Rock" to="Rock" method="_on_Rock_body_entered"]
