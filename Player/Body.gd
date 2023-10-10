@@ -8,7 +8,6 @@ var hasTakenDamage = false
 func _ready():
 	Gs.connect("updateHealth", self, "scoreToHealth")
 
-	
 func _physics_process(delta):
 	motion = Vector2()  # Reset the motion vector at the start of each frame
 
@@ -41,7 +40,7 @@ func _physics_process(delta):
 	motion = move_and_slide(motion)
 
 func GetChest():
-	Gs.chestCounter += 1
+	Gs.chestCounter = Gs.chestCounter + 1
 	scoreToHealth()
 	$AudioStreamPlayer.play()
 	
@@ -59,18 +58,24 @@ func GetChest():
 	#timer slut
 	t.queue_free()
 
-	
-	
-	
-	
+
 func scoreToHealth():
 	if Gs.chestCounter % 10 == 0 && Gs.chestCounter > 0:
-		Gs.health = Gs.health + 1
-		Gs.emit_signal("updateHealth",Gs.health)
-		print(Gs.health)
+		print(1964)
+		if Gs.health >= 3:
+			Gs.health = 3
+		else:
+			print("before: " + str(Gs.health))
+			Gs.health = Gs.health + 1
+			print("after: " + str(Gs.health))
+			Gs.emit_signal("updateHealth", Gs.health)
+			
 
 func take_damage():
-	Gs.health = Gs.health - 1
+	if not hasTakenDamage: 
+		Gs.health = Gs.health - 1
+		hasTakenDamage = true  
+		check_if_dead()
 	check_if_dead()
 	
 	$AudioStreamPlayer2.play()
@@ -88,20 +93,11 @@ func take_damage():
 	
 	#timer slut
 	t.queue_free()
+	hasTakenDamage = false
 	
-	if not hasTakenDamage: 
-		Gs.health = Gs.health - 1
-		hasTakenDamage = true  
-		check_if_dead()
-		hasTakenDamage = false
+	
 
 func check_if_dead():
 	if Gs.health <= 0:
 		get_tree().change_scene("res://Scenes/GameOver.tscn")
 	
-	
-
-	
-	
-
-
