@@ -1,13 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Tilemap/WaterNoBoundary.tres" type="TileSet" id=1]
 [ext_resource path="res://Tilemap/WaterBoundary.tres" type="TileSet" id=2]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Models/Rock.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Models/Chest.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Other/ChestCounter.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Game.gd" type="Script" id=7]
 
 [node name="Game" type="Node2D"]
+script = ExtResource( 7 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -23,22 +23,9 @@ tile_set = ExtResource( 2 )
 format = 1
 tile_data = PoolIntArray( -4063268, 0, 0, -4063260, 0, 0, -4063252, 0, 0, -4063244, 0, 0, -4063236, 0, 0, -4128764, 0, 0, -4128756, 0, 0, -4128748, 0, 0, -4128740, 0, 0, -3538980, 0, 0, -3604452, 0, 0, -3014692, 0, 0, -3080164, 0, 0, -2490404, 0, 0, -2555876, 0, 0, -1966116, 0, 0, -2031588, 0, 0, -1441828, 0, 0, -1507300, 0, 0, -917540, 0, 0, -983012, 0, 0, -393252, 0, 0, -458724, 0, 0, 131036, 0, 0, 65564, 0, 0, 655324, 0, 0, 589852, 0, 0, 1179612, 0, 0, 1114140, 0, 0, 1703900, 0, 0, 1638428, 0, 0, 2228188, 0, 0, 2162716, 0, 0, 2752476, 0, 0, 2687004, 0, 0, 3276764, 0, 0, 3211292, 0, 0, 3801052, 0, 0, 3801060, 0, 0, 3801068, 0, 0, 3801076, 0, 0, 3801084, 0, 0, 3735556, 0, 0, 3735564, 0, 0, 3735572, 0, 0, 3735580, 0, 0 )
 
-[node name="Rock" parent="." instance=ExtResource( 4 )]
-position = Vector2( 66, -1786 )
-
-[node name="Rock2" parent="." instance=ExtResource( 4 )]
-position = Vector2( -987, 2042 )
-
-[node name="Rock3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 997, 988 )
-
-[node name="Chest" parent="." instance=ExtResource( 5 )]
-position = Vector2( -1425, -798 )
-scale = Vector2( 0.75, 0.75 )
-
 [node name="Player" parent="." instance=ExtResource( 3 )]
 scale = Vector2( 5, 5 )
 
 [node name="ChestCounter" parent="." instance=ExtResource( 6 )]
-position = Vector2( -1623, -2504 )
+position = Vector2( -2212, -3887 )
 scale = Vector2( 4, 4 )
