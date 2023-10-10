@@ -1,9 +1,12 @@
 extends KinematicBody2D
 
-const Speed = 500
+const Speed = 1000
 
 var motion = Vector2()
+func _ready():
+	Gs.connect("extraHealth", self, "scoreToHealth")
 
+	
 func _physics_process(delta):
 	motion = Vector2()  # Reset the motion vector at the start of each frame
 
@@ -36,6 +39,15 @@ func _physics_process(delta):
 	motion = move_and_slide(motion)
 func GetChest():
 	Gs.chestCounter += 1
+	scoreToHealth()
+	
+func scoreToHealth():
+	if Gs.chestCounter % 3 == 0 && Gs.chestCounter > 0:
+		Gs.health = Gs.health + 1
+		Gs.emit_signal("extraHealth",Gs.health)
+		print(Gs.health)
+	
+	
 	
 
 
