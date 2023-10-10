@@ -4,7 +4,7 @@ const Speed = 1000
 
 var motion = Vector2()
 func _ready():
-	Gs.connect("extraHealth", self, "scoreToHealth")
+	Gs.connect("updateHealth", self, "scoreToHealth")
 
 	
 func _physics_process(delta):
@@ -42,7 +42,7 @@ func GetChest():
 	scoreToHealth()
 	
 func scoreToHealth():
-	if Gs.chestCounter % 3 == 0 && Gs.chestCounter > 0:
+	if Gs.chestCounter % 10 == 0 && Gs.chestCounter > 0:
 		Gs.health = Gs.health + 1
 		Gs.emit_signal("updateHealth",Gs.health)
 		print(Gs.health)
