@@ -41,24 +41,6 @@ func _physics_process(delta):
 func GetChest():
 	Gs.chestCounter += 1
 	$AudioStreamPlayer.play()
-	scoreToHealth()
-	
-func scoreToHealth():
-	if Gs.chestCounter % 10 == 0 && Gs.chestCounter > 0:
-		Gs.health = Gs.health + 1
-		Gs.emit_signal("updateHealth",Gs.health)
-		print(Gs.health)
-
-func take_damage():
-	Gs.health = Gs.health - 1
-	check_if_dead()
-
-func check_if_dead():
-	if Gs.health <= 0:
-		get_tree().change_scene("res://Scenes/GameOver.tscn")
-	
-	
-
 	
 	#timer
 	var t = Timer.new()
@@ -74,5 +56,43 @@ func check_if_dead():
 	#timer slut
 	t.queue_free()
 
+	
+	
+	scoreToHealth()
+	
+func scoreToHealth():
+	if Gs.chestCounter % 10 == 0 && Gs.chestCounter > 0:
+		Gs.health = Gs.health + 1
+		Gs.emit_signal("updateHealth",Gs.health)
+		print(Gs.health)
+
+func take_damage():
+	Gs.health = Gs.health - 1
+	check_if_dead()
+	
+	$AudioStreamPlayer2.play()
+	
+	#timer
+	var t = Timer.new()
+	t.set_wait_time(0.96)
+	t.set_one_shot(true)
+	self.add_child(t)
+	t.start()
+	yield(t, "timeout")
+	
+	#stop
+	$AudioStreamPlayer2.stop()
+	
+	#timer slut
+	t.queue_free()
+
+func check_if_dead():
+	if Gs.health <= 0:
+		get_tree().change_scene("res://Scenes/GameOver.tscn")
+	
+	
+
+	
+	
 
 
