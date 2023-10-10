@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Tilemap/WaterNoBoundary.tres" type="TileSet" id=1]
 [ext_resource path="res://Tilemap/WaterBoundary.tres" type="TileSet" id=2]
@@ -7,8 +7,11 @@
 [ext_resource path="res://Scenes/GamePause.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Other/ChestCounter.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Game.gd" type="Script" id=7]
+[ext_resource path="res://Audio/Pirates of the Caribbean - Hes a Pirate.mp3" type="AudioStream" id=8]
+[ext_resource path="res://Scenes/GameSound.gd" type="Script" id=9]
 
 [node name="Game" type="Node2D"]
+script = ExtResource( 9 )
 
 [node name="World" type="Node2D" parent="."]
 script = ExtResource( 7 )
@@ -44,3 +47,7 @@ margin_top = -833.0
 margin_right = -885.0
 margin_bottom = -833.0
 rect_scale = Vector2( 10, 10 )
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
+volume_db = -25.0
