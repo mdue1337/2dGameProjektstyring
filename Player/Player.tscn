@@ -52,4 +52,4 @@ volume_db = 24.0
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Body"]
 pause_mode = 1
 stream = ExtResource( 4 )
-volume_db = -10.0
+volume_db = -20.0
