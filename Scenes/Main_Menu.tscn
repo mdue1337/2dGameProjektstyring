@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Other/Font/Main_Menu_Title.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Models/pirate.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Main_Menu.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/SelectFromDB.gd" type="Script" id=4]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource( 3 )
@@ -54,6 +55,9 @@ text = "Rules"
 __meta__ = {
 "_edit_group_": true
 }
+
+[node name="PostgreSQL integration" type="Node2D" parent="."]
+script = ExtResource( 4 )
 
 [connection signal="pressed" from="ColorRect/StartLevel" to="." method="_on_StartLevel_pressed"]
 [connection signal="pressed" from="ColorRect/Settings" to="." method="_on_Settings_pressed"]
