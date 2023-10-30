@@ -24,8 +24,8 @@ func selectFromDB():
 	SELECT * FROM leaderboard
 	""")
 	
-	for d in data:
-		print(data.data_row)
+	for d in data[1].data_row:
+		print(d)
 	database.close()
 
 func _process(delta):
