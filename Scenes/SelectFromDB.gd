@@ -16,6 +16,19 @@ func _ready():
 	
 	pass
 
+func insertIntoDB(id,name,score):
+	print("running select query")
+	
+	var data = database.execute("""
+	BEGIN;
+	INSERT INTO leaderboard (id,name,score) values (%s, '%s', %s);
+	commit;
+	""" % [id,name,score])
+	
+	for d in data[1].data_row:
+		print(d)
+	database.close()
+
 func selectFromDB():
 	print("running select query")
 	
