@@ -11,7 +11,3 @@ func _on_StartLevel_pressed():
 func _on_Settings_pressed():
 	print(2)
 	get_tree().change_scene("res://Scenes/Rules.tscn")
-
-
-func _on_Login_pressed():
-	get_tree().change_scene("res://Other/LoginScreen2.tscn")
