@@ -80,7 +80,7 @@ margin_right = 340.0
 margin_bottom = 347.0
 rect_min_size = Vector2( 0, 60 )
 
-[node name="LoginButton" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
+[node name="Login_LoginButton" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
 margin_left = 60.0
 margin_top = 351.0
 margin_right = 280.0
@@ -90,7 +90,7 @@ size_flags_horizontal = 4
 texture_normal = ExtResource( 3 )
 expand = true
 
-[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/LoginButton"]
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/Login_LoginButton"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 3.0
@@ -103,7 +103,7 @@ text = "Login
 align = 1
 valign = 1
 
-[node name="CreateAccountButton" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
+[node name="Login_CreateAccountButton" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
 margin_left = 20.0
 margin_top = 415.0
 margin_right = 320.0
@@ -113,7 +113,7 @@ size_flags_horizontal = 4
 texture_normal = ExtResource( 3 )
 expand = true
 
-[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/CreateAccountButton"]
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/Login_CreateAccountButton"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 27.0
@@ -126,3 +126,6 @@ text = "Create Account
 "
 align = 1
 valign = 1
+
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/Login_LoginButton" to="." method="_on_LoginButton_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/Login_CreateAccountButton" to="." method="_on_CreateAccountButton_pressed"]

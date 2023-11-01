@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Other/Font/Main_Menu_Title.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Models/pirate.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Main_Menu.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/SelectFromDB.gd" type="Script" id=4]
+[ext_resource path="res://Other/LoginScreen2.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Other/CreateAccount.tscn" type="PackedScene" id=6]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource( 3 )
@@ -67,10 +69,30 @@ __meta__ = {
 "_edit_group_": true
 }
 
+[node name="LoginScreen2" parent="." instance=ExtResource( 5 )]
+visible = false
+margin_left = 193.0
+margin_top = 485.0
+margin_right = 425.0
+margin_bottom = 651.0
+
+[node name="CreateAccount2" parent="." instance=ExtResource( 6 )]
+visible = false
+margin_left = 306.0
+margin_top = 570.0
+margin_right = 306.0
+margin_bottom = 570.0
+
 [node name="PostgreSQL integration" type="Node2D" parent="."]
 script = ExtResource( 4 )
 
 [connection signal="pressed" from="ColorRect/StartLevel" to="." method="_on_StartLevel_pressed"]
 [connection signal="pressed" from="ColorRect/Settings" to="." method="_on_Settings_pressed"]
 [connection signal="pressed" from="ColorRect/Login" to="." method="_on_Login_pressed"]
-[connection signal="pressed" from="ColorRect/Login" to="." method="_on_Settings_pressed"]
+[connection signal="pressed" from="LoginScreen2/NinePatchRect/VBoxContainer/Login_LoginButton" to="." method="_on_Login_LoginButton_pressed"]
+[connection signal="pressed" from="LoginScreen2/NinePatchRect/VBoxContainer/Login_CreateAccountButton" to="." method="_on_Login_CreateAccountButton_pressed"]
+[connection signal="pressed" from="CreateAccount2/NinePatchRect/VBoxContainer/CreateAccountButton" to="." method="_on_CreateAccountButton_pressed"]
+[connection signal="pressed" from="CreateAccount2/NinePatchRect/VBoxContainer/LoginButton" to="." method="_on_LoginButton_pressed"]
+
+[editable path="LoginScreen2"]
+[editable path="CreateAccount2"]

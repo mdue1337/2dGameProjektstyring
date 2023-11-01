@@ -131,3 +131,5 @@ text = "Login
 "
 align = 1
 valign = 1
+
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/CreateAccountButton" to="." method="_on_CreateAccountButton_pressed"]
