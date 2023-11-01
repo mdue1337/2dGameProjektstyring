@@ -1,19 +1,19 @@
 extends Node2D
-var database = PostgreSQLClient.new()
+var database := PostgreSQLClient.new()
 
-var user = "postgres"
-var password = "password"
-var host = "localhost"
-var port = "5432" #manden i videoen havde de tsom en int men det tror jeg ikke virker
-var databaseConnection = "Skrivnavnher"
+var user = "xubugyyg"
+var password = "zMUTlOkEi6EOCjPVyMBbwbkE_c6wpElq"
+var host = "flora.db.elephantsql.com"
+var port = 5432 #manden i videoen havde de tsom en int men det tror jeg ikke virker
+var databaseConnection = "xubugyyg"
 
 func _ready():
 	database.connect("connection_established",self, "selectFromDB")
 	database.connect("connection_error",self,"error")
 	database.connect("connection_closed",self,"closedConnection")
 	
-	database.connect_to_host("postgresql://" + user + ":" + password + "@" + host + ":" + port + "/" + databaseConnection)
-	
+	database.connect_to_host("postgresql://%s:%s@%s:%d/%s" % [user, password, host, port, databaseConnection])
+		
 	pass
 
 func insertIntoDB(id,name,score):
@@ -34,16 +34,17 @@ func selectFromDB():
 	
 	var data = database.execute("""
 	BEGIN;
-	SELECT * FROM leaderboard
+	SELECT * FROM leaderboard;
 	""")
 	
-	for d in data[1].data_row:
+	for d in data:
 		print(d)
 	database.close()
 
 func _process(delta):
 	database.poll()
 	pass
+
 func closedConnection():
 	print("database has closed")
 
