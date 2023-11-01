@@ -12,6 +12,7 @@ func _ready():
 	database.connect("connection_error",self,"error")
 	database.connect("connection_closed",self,"closedConnection")
 	
+	print("Attempting to connect")
 	database.connect_to_host("postgresql://%s:%s@%s:%d/%s" % [user, password, host, port, databaseConnection])
 	pass
 
