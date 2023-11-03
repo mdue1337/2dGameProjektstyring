@@ -23,6 +23,6 @@ func _on_CreateAccountButton_pressed():
 		var dbScriptInstance = dbScript.new()
 		dbScriptInstance.insertDBUser()
 		
-		print("Account created succesfully")
+		print("CreateAccount.gd - AccountCreation code has been run")
 	else:
 		print("Please provide valid username, password and email")

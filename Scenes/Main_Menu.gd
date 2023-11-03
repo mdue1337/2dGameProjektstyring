@@ -20,11 +20,11 @@ func _on_Login_pressed():
 	get_node("LoginScreen2").visible = true
 
 
-func _on_CreateAccountButton_pressed():
-	if username_input.text != "" and password_input.text != "" and "@" in email_input.text:
-		print("Account created succesfully")
-	else:
-		print("Please provide valid username, password and email")
+#func _on_CreateAccountButton_pressed():
+#	if username_input.text != "" and password_input.text != "" and "@" in email_input.text:
+#		print("Account created succesfully")
+#	else:
+#		print("Please provide valid username, password and email")
 
 
 func _on_LoginButton_pressed():
@@ -32,11 +32,24 @@ func _on_LoginButton_pressed():
 	get_node("CreateAccount2").visible = false
 
 func _on_Login_LoginButton_pressed():
-	if username_input.text != "" and password_input.text != (""):
-		print("Login Succesfull")
+	print("you pressed me!")
+	#if username_input.text != "" and password_input.text != (""):
+	if true:
+		Gs.loginemail = username_input.text
+		print(str(Gs.loginemail))
+		Gs.loginpw = password_input.text
+		print(str(Gs.loginpw))
+		
+		print("Main_Menu.gd - attempting login")
+		var dbScript = preload("res://Scenes/SelectFromDB.gd")
+		var dbScriptInstance = dbScript.new()
+		dbScriptInstance.VerifyLogin()
+		
+		
+		
 		get_node("LoginScreen2").visible = false
 	else:
-		print("Incorrect Username or Password")
+		print("Nothing Written!")
 
 
 func _on_Login_CreateAccountButton_pressed():

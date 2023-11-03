@@ -4,16 +4,18 @@ var database := PostgreSQLClient.new()
 var user = "xubugyyg"
 var password = "zMUTlOkEi6EOCjPVyMBbwbkE_c6wpElq"
 var host = "flora.db.elephantsql.com"
-var port = 5432 #manden i videoen havde de tsom en int men det tror jeg ikke virker
+var port = 5432
 var databaseConnection = "xubugyyg"
 
 func _ready():
-	database.connect("connection_established",self, "selectFromDB")
+	database.connect("connection_established",self, "selectUserFromDB")
 	database.connect("connection_error",self,"error")
 	database.connect("connection_closed",self,"closedConnection")
 	
 	database.connect_to_host("postgresql://%s:%s@%s:%d/%s" % [user, password, host, port, databaseConnection])
-		
+	
+	print("SelectFromDB.gd - database intialization code run")
+	
 	pass
 
 func insertIntoDB(id,name,score):
@@ -27,8 +29,11 @@ func insertIntoDB(id,name,score):
 	
 	for d in data[1].data_row:
 		print(d)
+		
+		
 	database.close()
 
+#LEGACY CODE! Det her er skrald men jeg gider ikke fjerne det fordi maybe who knows det skader ikke noget at være der der er like maksimum 100 kb ram mere det er fint
 func selectFromDB():
 	print("running select query")
 	
@@ -66,12 +71,17 @@ func insertDBUser():
 	database.close()
 
 func VerifyLogin():
-	var email = Gs.loginEmail
-	var pw = Gs.loginPw
+	var email = Gs.loginemail
+	var pw = Gs.loginpw
+	print(str(pw))
+	print(str(email))
 	
-	var query = "SELECT COUNT(*) FROM public.\"Users\" WHERE email = '" + str(email) + "' AND passwordtext = '" + str(pw) + "'"
+	var query = "SELECT * FROM public.\"Users\" WHERE email = '" + str(email) + "' AND passwordtext = '" + str(pw) + "'"
 	
 	var data = database.execute(query)
+	
+	var num = data.size()
+	print(num)
 	
 	if data[0].data_row[0][0] == 1:
 		print("login win")
@@ -84,7 +94,6 @@ func VerifyLogin():
 		print("userID updated to:")
 		print(Gs.userid)
 		
-		
 	else:
 		print("login fail")
 		Gs.loginsucess = false
@@ -93,7 +102,7 @@ func VerifyLogin():
 
 
 func scoreLogger():
-	if(Gs.userid==9223372036854775000):
+	if(Gs.userid==92233720368547750):
 		print("Ingen User logged ind")
 		pass
 	
