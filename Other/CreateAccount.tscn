@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Other/Font/Main_Menu_Title.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Other/LoginBackground.jpeg" type="Texture" id=2]
 [ext_resource path="res://Other/RockButton.png" type="Texture" id=3]
 [ext_resource path="res://Other/Font/Rules.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Other/CreateAccount.gd" type="Script" id=5]
 
 [node name="CreateAccount2" type="Control"]
 anchor_right = 1.0
@@ -94,6 +95,7 @@ rect_min_size = Vector2( 300, 80 )
 size_flags_horizontal = 4
 texture_normal = ExtResource( 3 )
 expand = true
+script = ExtResource( 5 )
 
 [node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/CreateAccountButton"]
 anchor_right = 1.0
@@ -133,3 +135,4 @@ align = 1
 valign = 1
 
 [connection signal="pressed" from="NinePatchRect/VBoxContainer/CreateAccountButton" to="." method="_on_CreateAccountButton_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/CreateAccountButton" to="NinePatchRect/VBoxContainer/CreateAccountButton" method="_on_CreateAccountButton_pressed"]

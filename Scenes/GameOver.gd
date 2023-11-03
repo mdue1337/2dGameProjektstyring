@@ -2,6 +2,10 @@ extends Node2D
 
 func _ready():
 	set_labels()
+	var dbScript = preload("res://Scenes/SelectFromDB.gd")
+	var dbScriptInstance = dbScript.new()
+	print("GameOver.gd - attempting to log score")
+	dbScriptInstance.scoreLogger()
 
 func set_labels():
 	var chestCount = Gs.chestCounter
